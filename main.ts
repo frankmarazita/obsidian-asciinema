@@ -10,17 +10,14 @@ export default class AsciinemaPlayerPlugin extends Plugin {
 
 					const src = div.getAttribute("src");
 
-					const matched = src?.match(/(?<filepath>.*\.cast)/);
+					const matched = src?.match(/(?<filepath>.*\.cast)$/);
 
 					if (matched) {
 						el.innerHTML = `<div class="asciinema-player"></div>`;
 
 						AsciinemaPlayer.create(
 							"https://asciinema.org/a/553356.cast",
-							el.querySelector(".asciinema-player"),
-							{
-								loop: true,
-							}
+							el
 						);
 					}
 				});
